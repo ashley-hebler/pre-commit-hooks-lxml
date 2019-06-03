@@ -25,7 +25,7 @@ def iterate_forbidden_attributes(html_filenames, forbidden_attributes):
                 for index, attribute_name in enumerate(elem.attrib.keys(), start=1):
                     print("Attribute {}: {}".format(index, attribute_name))
                     try:
-                      print elem.attrib[index]
+                      print(elem.attrib[index])
                     except:
                         print "Does not work!"
                     if attribute_name in forbidden_attributes:
