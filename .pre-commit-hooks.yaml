@@ -40,6 +40,4 @@
     entry: enforce_new_tab_policy
     language: python
     args:
-    - --forbidden-attributes
-    - align,alink,background,basefont,bgcolor,border,color,link,text,vlink
     files: \.(html|hbs)$
