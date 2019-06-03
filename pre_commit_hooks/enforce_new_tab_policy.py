@@ -21,7 +21,7 @@ def iterate_forbidden_attributes(html_filenames, forbidden_attributes):
     for html_filename in html_filenames:
         with open(html_filename, 'rb') as html_file:
             for _, elem in iterparse(html_file, html=True, remove_comments=True):
-                print(elem)
+                print(elem.attrib)
                 for attribute_name in elem.attrib.keys():
                     if attribute_name in forbidden_attributes:
                         yield html_filename, attribute_name  # sadly elem.sourceline is None :(
