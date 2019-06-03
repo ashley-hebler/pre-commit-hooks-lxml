@@ -6,13 +6,11 @@ from lxml.etree import iterparse
 def main(argv=None):
     parser = argparse.ArgumentParser()
     parser.add_argument('filenames', nargs='*', help='filenames to check')
-    parser.add_argument('--forbidden-attributes', type=lambda s: s.split(','), default=[],
-                        help='Comma-separated list of forbidden attribute names')
     args = parser.parse_args(argv)
     matches = list(iterate_attributes(args.filenames))
     return_error_code = 0
     for filename in matches:
-        print('target=_blank used with no rel found in {}'.format(filename))
+        print('target="_blank" used without rel="noopener noreferrer" in {}'.format(filename))
         return_error_code = 1
     return return_error_code
 
@@ -27,13 +25,10 @@ def iterate_attributes(html_filenames):
                     val = elem.attrib[attribute_name]
                     if attribute_name == 'target' and val == '_blank':
                       new_window = True
-                    if attribute_name == 'rel' and val == 'noopener':
+                    if attribute_name == 'rel' and (val == 'noopener noreferrer' or val == 'noreferrer noopener'):
                       includes_rel = True
-                # yield html_filename, new_window, includes_rel
                 if new_window and not includes_rel:
                   yield html_filename
-                
-            
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv[1:]))
