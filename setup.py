@@ -35,6 +35,7 @@ setup(
             'forbid_non_std_html_attributes = pre_commit_hooks.forbid_non_std_html_attributes:main',
             'html_tags_blacklist = pre_commit_hooks.html_tags_blacklist:main',
             'html_attributes_blacklist = pre_commit_hooks.html_attributes_blacklist:main',
+            'enforce_new_tab_policy = pre_commit_hooks.enforce_new_tab_policy:main',
         ],
     },
 )
