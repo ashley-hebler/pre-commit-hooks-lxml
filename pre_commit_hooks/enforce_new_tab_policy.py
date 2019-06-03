@@ -25,9 +25,9 @@ def iterate_attributes(html_filenames):
                 includes_rel = False
                 for attribute_name in elem.attrib.keys():
                     val = elem.attrib[attribute_name]
-                    if attribute_name == 'target' and val = '_blank':
+                    if attribute_name == 'target' and val == '_blank':
                       new_window = True
-                    if attribute_name == 'rel' and val = 'noopener':
+                    if attribute_name == 'rel' and val == 'noopener':
                       includes_rel = True
                 # yield html_filename, new_window, includes_rel
                 if new_window and not includes_rel:
