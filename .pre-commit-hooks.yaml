@@ -39,5 +39,4 @@
     name: All target="_blank" must be followed by rel="noopener noreferrer" 
     entry: enforce_new_tab_policy
     language: python
-    args:
     files: \.(html|hbs)$
